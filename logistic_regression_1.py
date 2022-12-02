@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 # load data
 data = pd.read_csv('examdata.csv')
 # print(pd.DataFrame(data.head()))
-# visualize the data
+# visualize the data    
 fig1 = plt.figure()
 '''
 # Python中通过索引名称提取数据,loc()函数。Python中通过行和列下标提取数据，iloc()函数。
@@ -28,7 +28,7 @@ plt.scatter(data.loc[:, 'Exam1'], data.loc[:, 'Exam2'])
 plt.title('Exam1-Exam2')
 plt.xlabel('Exam1')
 plt.ylabel('Exam2')
-# plt.show()
+plt.show()
 mask = data.loc[:, 'Pass'] == 1
 # print(mask)
 fig2 = plt.figure()
@@ -40,7 +40,7 @@ plt.xlabel('Exam1')
 plt.ylabel('Exam2')
 # 将两种数据做标记展示
 plt.legend((passed, failed), ('passed', 'failed'))
-# plt.show()
+plt.show()
 # dafine X y
 # 去除Pass，1表示列
 X = data.drop(['Pass'], axis=1)
@@ -55,7 +55,7 @@ LR.fit(X, y)
 y_predicted = LR.predict(X)
 # score
 score = accuracy_score(y, y_predicted)
-# 结果为0.89
+# 结果为0.87
 print(score)
 y_test = LR.predict([[70, 65]])
 # print('pass' if y_test == 1 else 'failed')
@@ -74,7 +74,7 @@ X1_X2 = X1*X2
 X_new = {'X1': X1, 'X2': X2, 'X1_2': X1_2, 'X2_2': X2_2, 'X1_X2': X1_X2}
 X_new = pd.DataFrame(X_new)
 # print(X_new)
-LR2 = LogisticRegression()
+LR2 = LogisticRegression()     
 LR2.fit(X_new, y)
 score2 = accuracy_score(y, LR2.predict(X_new))
 # 改进边界函数之后，分数为1，全部预测成功

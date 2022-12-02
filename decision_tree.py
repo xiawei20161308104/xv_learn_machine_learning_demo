@@ -8,7 +8,9 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import accuracy_score
 from matplotlib import pyplot as plt
-data = pd.read_csv('iris_data.csv')
+import os
+current_directory = os.path.dirname(os.path.abspath(__file__))
+data = pd.read_csv(current_directory+'/iris_data.csv')
 print(data.head())
 X = data.drop(['target', 'label'], axis=1)
 y = data.loc[:, 'label']

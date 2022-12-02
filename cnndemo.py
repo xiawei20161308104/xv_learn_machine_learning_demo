@@ -8,6 +8,7 @@
 
 
 import numpy as np
+import tensorflow as tf
 # 建立一个序列
 from pyexpat import model
 from tensorflow.keras.models import Sequential
@@ -16,7 +17,7 @@ from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
-
+print(tf.__version__)
 # 一、load data
 # 设置255归一化
 train_datagen = ImageDataGenerator(rescale=1./255)

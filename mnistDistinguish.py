@@ -1,4 +1,13 @@
+'''
+Author: xv rg16xw@163.com
+Date: 2022-09-17 13:54:36
+LastEditors: xv rg16xw@163.com
+LastEditTime: 2022-11-24 09:04:03
+FilePath: \xv_learn_machine_learning_demo\mnistDistinguish.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 """
+mlp
 构建一个普通的两层神经网络对minist手写数字集进行训练
 这次只是对流程的概述，具体细节会逐步展开
 """

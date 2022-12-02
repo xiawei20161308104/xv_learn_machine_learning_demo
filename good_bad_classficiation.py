@@ -13,14 +13,13 @@ from matplotlib import pyplot as plt
 from sklearn.covariance import EllipticEnvelope
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-import os
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 # 混淆矩阵包
 from sklearn.metrics import confusion_matrix
 
-
+import os
 current_directory = os.path.dirname(os.path.abspath(__file__))
 # print(current_directory)
 # load the data,define the data, visualize the data

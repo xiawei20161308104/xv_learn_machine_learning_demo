@@ -1,3 +1,140 @@
+//
+// {
+//   "python.formatting.provider": "black",
+//   "editor.formatOnSave": true,
+//   "git.ignoreLimitWarning": true
+// }
+//
 {
-  "git.ignoreLimitWarning": true
+    // 代码文件头部注释
+    "fileheader.customMade": {
+        "Version": "1.0",
+        "Author": "xiawei",
+        "Date": "Do not edit",
+        "LastEditors": "xiawei",
+        "LastEditTime": "Do not edit",
+        "Description": ""
+    },
+    // 函数注释
+    "fileheader.cursorMode": {
+        "Author": "xiawei",
+        "Date": "Do not edit",
+        "LastEditors": "xiawei",
+        "LastEditTime": "Do not edit",
+        "description": ""
+    },
+    "fileheader.configObj": {
+        "createFileTime": true,
+        "language": {
+            "languagetest": {
+                "head": "/$$",
+                "middle": " $ @",
+                "end": " $/",
+                "functionSymbol": {
+                    "head": "/** ",
+                    "middle": " * @",
+                    "end": " */"
+                },
+                "functionParams": "js"
+            }
+        },
+        "autoAdd": true,
+        "autoAddLine": 100,
+        "autoAlready": true,
+        "annotationStr": {
+            "head": "/*",
+            "middle": " * @",
+            "end": " */",
+            "use": false
+        },
+        "headInsertLine": {
+            "php": 2,
+            "sh": 2
+        },
+        "beforeAnnotation": {
+            "文件后缀": "该文件后缀的头部注释之前添加某些内容"
+        },
+        "afterAnnotation": {
+            "文件后缀": "该文件后缀的头部注释之后添加某些内容"
+        },
+        "specialOptions": {
+            "特殊字段": "自定义比如LastEditTime/LastEditors"
+        },
+        "switch": {
+            "newlineAddAnnotation": true
+        },
+        "supportAutoLanguage": [],
+        "prohibitAutoAdd": ["json"],
+        "folderBlacklist": ["node_modules", "文件夹禁止自动添加头部注释"],
+        "prohibitItemAutoAdd": [
+            "项目的全称, 整个项目禁止自动添加头部注释, 可以使用快捷键添加"
+        ],
+        "moveCursor": true,
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "atSymbol": ["@", "@"],
+        "atSymbolObj": {
+            "文件后缀": ["头部注释@符号", "函数注释@符号"]
+        },
+        "colon": [": ", ": "],
+        "colonObj": {
+            "文件后缀": ["头部注释冒号", "函数注释冒号"]
+        },
+        "filePathColon": "路径分隔符替换",
+        "showErrorMessage": false,
+        "writeLog": false,
+        "wideSame": false,
+        "wideNum": 13,
+        "functionWideNum": 0,
+        "CheckFileChange": false,
+        "createHeader": true,
+        "useWorker": false,
+        "designAddHead": false,
+        "headDesignName": "random",
+        "headDesign": false,
+        "cursorModeInternalAll": {},
+        "openFunctionParamsCheck": true,
+        "functionParamsShape": ["{", "}"],
+        "functionBlankSpaceAll": {},
+        "functionTypeSymbol": "*",
+        "typeParamOrder": "type param",
+        "customHasHeadEnd": {},
+        "throttleTime": 60000
+    },
+
+    // 代码格式化
+    // vscode默认启用了根据文件类型自动设置tabsize的选项
+    "editor.detectIndentation": false,
+    // 重新设定tabsize
+    "editor.tabSize": 4,
+
+    // 添加 vue 支持
+    "eslint.validate": ["javascript", "html", "vue"],
+    //  去掉代码结尾的分号
+    "prettier.semi": false,
+    "prettier.tabWidth": 4,
+    //  使用单引号替代双引号
+    "prettier.singleQuote": true,
+
+    //  让函数(名)和后面的括号之间加个空格
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    // 每次保存的时候将代码按eslint格式进行修复
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    // 代码是否按屏幕宽度换行
+    "editor.wordWrap": "on",
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.formatting.provider": "autopep8",
+    "editor.formatOnSave": true,
+    "python.formatting.yapfArgs": [
+        "--style",
+        "{column_limit: 79}" //设置一行最长字符数
+    ],
+    "emmet.preferences": {},
+    "git.ignoreLimitWarning": true
 }
