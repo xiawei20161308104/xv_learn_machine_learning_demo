@@ -3,7 +3,7 @@ Version: 1.0
 Author: xiawei
 Date: 2022-12-27 10:26:51
 LastEditors: xiawei
-LastEditTime: 2022-12-27 20:32:56
+LastEditTime: 2022-12-27 22:06:39
 Description: 双边滤波
 锐化-灰度化-双边滤波-二值化-开闭运算-得到未知-connectedComponentsWithStats-makers+1-未知置0-wateshed
 
@@ -72,6 +72,7 @@ def Show_Markers():
 # 分水岭找边界
 def Watershed():
     global markers
+
     # 1、开运算去噪
     close = cv.morphologyEx(
         binary, cv.MORPH_CLOSE, (3, 3), iterations=3)
