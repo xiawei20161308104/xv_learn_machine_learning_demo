@@ -13,9 +13,10 @@ print(test_id)
 
 img = load_img(f"./data/test/{test_id}", target_size=(IMG_HEIGHT, IMG_WIDTH))
 input_array = np.array([img_to_array(img)]) # Convert single image to a batch.
-model = load_model('unet_16_200_0.99563.h5') 
+# model = load_model('unet_16_200_0.99563.h5') 
+model = load_model('unet.h5') 
 pre = model.predict(input_array)
-print(pre)
-
+print('11',pre)
 Image.open(f"./data/test/{test_id}").resize((256, 256))
 plt.imshow(array_to_img(np.squeeze(pre)[:, :, np.newaxis]))
+plt.show()

@@ -1,18 +1,28 @@
 '''
+Descripttion: 
+Version: 1.0
+Author: xiawei
+Date: 2022-09-26 14:33:15
+LastEditors: xiawei
+LastEditTime: 2022-12-18 10:49:57
+'''
+'''
 1.基于iris实现knn分类，neighbors=3
 2.对数据标准化，选一个维度可视化
 3.对原数据等维度pca，查看各主成分方差比例
 4.保留合适的主成分(principle components)，可视化降维之后的数据
 5.基于降维之后的数据knn，与原数据对比
 '''
+
+from sklearn.metrics import accuracy_score
+import os
 from sklearn.decomposition import PCA
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
-from sklearn.metrics import accuracy_score
-
-data = pd.read_csv('iris_data.csv')
+current_directory = os.path.dirname(os.path.abspath(__file__))
+data = pd.read_csv(current_directory+'.\iris_data.csv')
 # print(data.head())
 
 X = data.drop(['target', 'label'], axis=1)
@@ -20,6 +30,8 @@ y = data.loc[:, 'label']
 # print("X", X, "y", y)
 
 KNN = KNeighborsClassifier(n_neighbors=3)
+
+print("X", X.shape, "y", y.shape)
 KNN.fit(X, y)
 y_predict = KNN.predict(X)
 knn_score = accuracy_score(y, y_predict)

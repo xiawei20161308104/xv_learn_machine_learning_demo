@@ -1,4 +1,12 @@
-"""手动绘制掩码并提取掩码"""
+'''
+Version: 1.0
+Author: xiawei
+Date: 2022-09-06 09:43:26
+LastEditors: xiawei
+LastEditTime: 2022-12-22 19:04:50
+Description: 手动绘制掩码并提取掩码
+'''
+
 
 import cv2
 import numpy as np
@@ -33,14 +41,16 @@ class App:
                               (x, y), (255, 0, 0), 3)
 
     def run(self):
-        self.img = cv2.imread('test.png')
+        self.img = cv2.imread('1.png')
         self.img2 = self.img.copy()
         self.output = np.zeros(self.img.shape[:2], dtype=np.uint8)
         self.mask = np.zeros(self.img.shape[:2], dtype=np.uint8)
-        cv2.namedWindow('input')
+        cv2.namedWindow('input', cv2.WINDOW_NORMAL)
         cv2.setMouseCallback('input', self.onmouse)
+
         while (1):
             cv2.imshow('input', self.img)
+            # cv2.namedWindow('output', cv2.WINDOW_NORMAL)
             cv2.imshow('output', self.output)
             k = cv2.waitKey(100)
             if k == 27:
