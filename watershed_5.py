@@ -3,8 +3,8 @@ Version: 1.0
 Author: xiawei
 Date: 2022-12-27 21:10:10
 LastEditors: xiawei
-LastEditTime: 2022-12-27 21:26:39
-Description: 在实现1.png基础上改进参数不适用等问题
+LastEditTime: 2022-12-28 09:18:18
+Description: 在实现1.png(watershed_4)基础上改进参数不适用等问题
 '''
 
 # 读取,灰度,高斯,二值化
