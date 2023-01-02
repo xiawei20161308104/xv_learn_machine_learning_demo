@@ -3,7 +3,7 @@ Version: 1.0
 Author: xiawei
 Date: 2022-12-27 10:26:51
 LastEditors: xiawei
-LastEditTime: 2022-12-27 10:28:42
+LastEditTime: 2022-12-29 12:20:55
 Description: 无前景背景无未知区域,connectedComponentsWithStats
 锐化-灰度化-高斯滤波-二值化-开运算-connectedComponentsWithStats-makers+1-wateshed
 '''
@@ -22,17 +22,18 @@ np.set_printoptions(edgeitems=10, linewidth=160)
 
 
 def ToBinary():
-    global gray, binary
+    global gray, binarys
     # 1、锐化
     kernel = np.array([
-        [10, 10, 10],
-        [10, -80, 10],
-        [10, 10, 10]
+        [2, 2, 2],
+        [2, -16, 2],
+        [2, 2, 2]
     ])
-    sharp = cv.filter2D(img, -1, kernel)
-    # cv.imshow('sharp', sharp)
+    filter2D = cv.filter2D(img, -1, kernel)
+    cv.namedWindow('filter2D', cv.WINDOW_NORMAL)
+    cv.imshow('filter2D', filter2D)
     # 灰度化
-    gray = cv.cvtColor(sharp, cv.COLOR_BGR2GRAY)
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     # cv.imshow('gray', gray)
     # 高斯滤波
     gray = cv.GaussianBlur(gray, (5, 5), 2)
@@ -63,8 +64,8 @@ def Show_Markers():
 
     mark[markers == -1] = (0, 255, 0)  # 边界（绿）
 
-    cv.namedWindow('Markers', cv.WINDOW_NORMAL)
-    cv.imshow('Markers', mark)
+    # cv.namedWindow('Markers', cv.WINDOW_NORMAL)
+    # cv.imshow('Markers', mark)
 
 
 # 分水岭找边界
@@ -93,7 +94,7 @@ def Watershed():
 
     # 6、使用分水岭算法，合并不确定区域和种子，边界修改为-1（分界：连通域背景 -- 未知区域+种子）
     markers = cv.watershed(img, markers)  # 分水岭算法（修改边界为-1）
-    Show_Markers()  # 显示各区域（连通域/背景、不确定区域、种子/前景）
+    # Show_Markers()  # 显示各区域（连通域/背景、不确定区域、种子/前景）
     logger.info('分水岭markers')
     logger.info(markers)
 

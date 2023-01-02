@@ -3,7 +3,7 @@ Version: 1.0
 Author: xiawei
 Date: 2022-12-24 09:02:25
 LastEditors: xiawei
-LastEditTime: 2022-12-28 06:59:37
+LastEditTime: 2022-12-29 10:18:40
 Description: 2
 '''
 # 距离变换与分水岭算法（路面检测）
@@ -14,12 +14,15 @@ import cv2 as cv
 # 转二值图像
 def ToBinary():
     global gray, binary
-    # 1、锐化
+    # 1、filter2D滤波，
     kernel = np.array([
         [2, 2, 2],
         [2, -16, 2],
         [2, 2, 2]
     ])
+    '''
+    img为输入图像，-1为第二个参数ddepth最深深度，-1说明要和原图深度一样，kernel为是一部确定好的卷积核的大小和样子，anchor锚点参数，默认根据核的形状找到中心位置作为锚点，delta参数就是要不要在卷积之后加个偏移，默认加0，borderType就是边缘类型，可以填充黑边，或者对得到的边缘做个什么反转等，默认BORDER_REFLECT_101：边缘反射101，对称法，以最边缘像素为轴，对称填充
+    '''
     sharp = cv.filter2D(img, -1, kernel)
     # cv.imshow('sharp', sharp)
     # 灰度化
